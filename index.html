@@ -30,7 +30,7 @@ window.ABC_CONFIG = {
   "linkCheckout": "https://pay.kiwify.com.br/e5QPfoa",
   "linkOferta": "https://pay.kiwify.com.br/NgDVqv5",
   "whatsapp": "https://wa.me/5511911094263?text=Oi%21%20Vim%20pelo%20site%20do%20ABC%20do%20Salgadeiro%20e%20quero%20tirar%20uma%20d%C3%BAvida.",
-  "utmifyPixelId": "6ac4db68ad99e2e250b662a8",
+  "utmifyPixelId": "",
   "precoDe": 299.99,
   "precoPor": 75,
   "precoOferta": 69.99,
@@ -42,16 +42,18 @@ window.ABC_CONFIG = {
 };
 </script>
 
-<!-- Utmify: UTMs nos links de checkout -->
+<!-- Utmify: UTMs nos links de checkout (a venda chega na Utmify com a campanha e o anúncio) -->
 <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
-<!-- Utmify: pixel (dispara PageView, ViewContent e InitiateCheckout no pixel do Meta 26960919246939269) -->
+<!-- Meta Pixel 949834814787949 (PageView e ViewContent; o checkout da Kiwify dispara InitiateCheckout e Purchase) -->
 <script>
-  window.pixelId = window.ABC_CONFIG.utmifyPixelId;
-  var a = document.createElement("script");
-  a.setAttribute("async", "");
-  a.setAttribute("defer", "");
-  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-  document.head.appendChild(a);
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '949834814787949');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent', {content_name: 'ABC do Salgadeiro', content_type: 'product', currency: 'BRL', value: 75});
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -338,7 +340,7 @@ details[open] .ap-ans{animation:apFade .35s ease both}
 </style>
 </head>
 <body>
-<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=26960919246939269&amp;ev=PageView&amp;noscript=1"></noscript>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=949834814787949&amp;ev=PageView&amp;noscript=1"></noscript>
 <div style="background: #1C0708; color: #FFF3EA; font-family: 'Figtree', system-ui, sans-serif; font-size: 17px; line-height: 1.55; overflow-x: clip">
 
 <!-- progresso de leitura -->
