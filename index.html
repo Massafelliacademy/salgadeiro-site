@@ -135,6 +135,27 @@ a:focus-visible,summary:focus-visible{outline:2px solid #FFCB5C;outline-offset:4
 .ap-tt{font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:25px;letter-spacing:.02em;text-transform:uppercase;white-space:nowrap}
 .ap-tt2{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:800;font-size:22px;white-space:nowrap}
 .ap-qm{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:56px;align-items:center}
+.ap-tour{position:relative;overflow:hidden;padding:104px 0;background:radial-gradient(ellipse 70% 60% at 72% 50%,#6A0B12 0%,#2B0A0B 55%,#1C0708 100%)}
+.ap-tour-in{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+.ap-tour-txt{display:flex;flex-direction:column;gap:20px;min-width:0}
+.ap-tour-tag{display:inline-flex;align-self:flex-start;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;background:rgba(231,47,45,.18);box-shadow:inset 0 0 0 1.5px rgba(255,97,60,.6);color:#FFE0D0;font-weight:800;font-size:14px;letter-spacing:.06em;text-transform:uppercase}
+.ap-tour-dot{display:block;flex:none;width:10px;height:10px;border-radius:50%;background:#FF2C25;animation:apDot 1.4s ease-out infinite}
+@keyframes apDot{0%{box-shadow:0 0 0 0 rgba(255,44,37,.75)}70%{box-shadow:0 0 0 12px rgba(255,44,37,0)}100%{box-shadow:0 0 0 0 rgba(255,44,37,0)}}
+.ap-tour-tit{margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:clamp(36px,4.6vw,60px);line-height:1.04;letter-spacing:-.015em}
+.ap-tour-tit em{font-style:italic;color:#FFCB5C;background:linear-gradient(100deg,#FFCB5C 35%,#FFF4D6 50%,#FFCB5C 65%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:apTextLuz 4s ease-in-out infinite}
+.ap-tour-palco{position:relative;display:flex;justify-content:center;align-items:center;min-height:660px}
+.ap-tour-fx{position:absolute;left:50%;top:50%;width:min(620px,130%);aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none}
+.ap-tour-ring{position:absolute;inset:16%;border-radius:50%;background:conic-gradient(from 0deg,#FFB41D,#FF613C,#C2171F,#FFB41D,#FF613C,#C2171F,#FFB41D);filter:blur(30px);opacity:.75;animation:apSpin 7s linear infinite}
+.ap-tour-cel{position:relative;z-index:2;width:clamp(230px,24vw,300px);padding:34px 10px 12px;border-radius:46px;background:linear-gradient(160deg,#2A2A2E,#0B0B0C 40%,#1D1D20);box-shadow:0 0 0 2px #3A3A3E,0 0 0 6px #111111,0 40px 80px -30px rgba(0,0,0,.95),0 0 70px rgba(255,120,40,.4);animation:apFloat 6s ease-in-out infinite}
+.ap-tour-ilha{position:absolute;left:50%;top:11px;width:34%;height:16px;border-radius:999px;background:#000000;transform:translateX(-50%)}
+.ap-tour-cel::after{content:"";position:absolute;inset:34px 10px 12px;border-radius:30px;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.2) 45%,transparent 60%);background-size:250% 100%;background-position:150% 0;animation:apVidro 5s ease-in-out infinite}
+@keyframes apVidro{0%,55%{background-position:150% 0}100%{background-position:-60% 0}}
+.ap-tour-video{display:block;width:100%;aspect-ratio:540/1104;object-fit:cover;border-radius:30px;background:#000000}
+.ap-tour-b{position:absolute;z-index:3;display:inline-flex;align-items:center;padding:10px 16px;border-radius:999px;background:#FFF3EA;color:#1C0708;font-weight:900;font-size:15px;white-space:nowrap;box-shadow:0 14px 30px -12px rgba(0,0,0,.8),0 0 0 3px rgba(255,180,29,.5);animation:apFlutua 6.5s ease-in-out infinite}
+.ap-tour-b.b1{left:2%;top:13%;--r:-6deg}
+.ap-tour-b.b2{right:2%;top:30%;--r:5deg;background:#FFB41D;animation-duration:7.5s;animation-delay:-2s}
+.ap-tour-b.b3{left:0;bottom:24%;--r:4deg;animation-duration:8s;animation-delay:-4s}
+.ap-tour-b.b4{right:3%;bottom:9%;--r:-4deg;background:#E72F2D;color:#FFFFFF;animation-duration:7s;animation-delay:-1s}
 .ap-maq{position:relative;display:flex;flex-direction:column;gap:6px;padding:20px 18px 14px;border-radius:28px;background:radial-gradient(ellipse 80% 70% at 50% 45%,#6A0B12 0%,#3A0709 55%,#1C0708 100%);box-shadow:inset 0 0 0 1.5px rgba(255,180,29,.5),0 40px 80px -40px rgba(0,0,0,.9);overflow:hidden}
 .ap-maq svg{display:block;width:100%;height:auto}
 .ap-chips{position:relative;z-index:2;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:0;padding:0;list-style:none}
@@ -329,12 +350,16 @@ details[open] .ap-ans{animation:apFade .35s ease both}
 .ap-hero-resto{align-items:center;text-align:center;margin-top:-60px;padding:0 0 140px;position:relative;z-index:3}
 .ap-cta-row,.ap-provas{justify-content:center}
 .ap-qm{grid-template-columns:minmax(0,1fr);gap:36px}
+.ap-tour-in{grid-template-columns:minmax(0,1fr);gap:20px}
+.ap-tour-txt{align-items:center;text-align:center}
+.ap-tour-tag{align-self:center}
+.ap-tour-palco{min-height:560px}
 .ap-mods{grid-template-columns:repeat(3,minmax(0,1fr))}
 .ap-cento{grid-template-columns:minmax(0,1fr);gap:36px;text-align:center}
 .ap-cento-txt{align-items:center}
 .ap-bandeja{max-width:440px;width:100%;margin:0 auto;box-sizing:border-box}
 }
-@media (max-width:640px){.ap-wrap{padding:0 16px}.ap-vid-play{width:62px !important;height:62px !important;top:38% !important}.ap-vid-play svg{width:26px;height:26px}.ap-vid-tit{font-size:15px !important}.ap-vid-sub{display:none}.ap-mods{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.ap-label{font-size:13px;border-width:2px;border-radius:10px}.ap-hide-sm{display:none}.ap-chip{font-size:13px;padding:6px 11px}.ap-depo{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}.ap-depo>figure{scroll-snap-align:start}.ap-prints{columns:auto;display:grid;grid-auto-flow:column;grid-auto-columns:80%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}.ap-prints>figure{margin:0;scroll-snap-align:start}.ap-stats{grid-template-columns:minmax(0,1fr)}.ap-polaroid{right:0 !important}.ap-pct.p1{right:-14px;top:-26px}.ap-pct.p2{left:-22px;top:40%}.ap-pct.p3{right:-8px;bottom:-96px;width:64px}.ap-bfh{gap:16px}.ap-tt{font-size:21px}.ap-tt2{font-size:19px}}
+@media (max-width:640px){.ap-wrap{padding:0 16px}.ap-vid-play{width:62px !important;height:62px !important;top:38% !important}.ap-vid-play svg{width:26px;height:26px}.ap-vid-tit{font-size:15px !important}.ap-vid-sub{display:none}.ap-mods{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.ap-label{font-size:13px;border-width:2px;border-radius:10px}.ap-hide-sm{display:none}.ap-chip{font-size:13px;padding:6px 11px}.ap-tour{padding:80px 0}.ap-tour-b{font-size:13px;padding:8px 12px}.ap-tour-b.b1{left:0;top:7%}.ap-tour-b.b2{right:0;top:24%}.ap-tour-b.b3{left:0;bottom:22%}.ap-tour-b.b4{right:0;bottom:6%}.ap-depo{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}.ap-depo>figure{scroll-snap-align:start}.ap-prints{columns:auto;display:grid;grid-auto-flow:column;grid-auto-columns:80%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}.ap-prints>figure{margin:0;scroll-snap-align:start}.ap-stats{grid-template-columns:minmax(0,1fr)}.ap-polaroid{right:0 !important}.ap-pct.p1{right:-14px;top:-26px}.ap-pct.p2{left:-22px;top:40%}.ap-pct.p3{right:-8px;bottom:-96px;width:64px}.ap-bfh{gap:16px}.ap-tt{font-size:21px}.ap-tt2{font-size:19px}}
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none !important;transition:none !important}.ap-h1-b{clip-path:none}.ap-h1-b::after{transform:none}.ap-cox-grid i,.ap-carimbo,.ap-pct-in,.mq-cox{opacity:1}.ap-pct-in{transform:none}.mq-cox.c1{transform:translate(0,10px)}.mq-cox.c2{transform:translate(60px,10px)}.mq-cox.c3{transform:translate(120px,10px)}.mq-cox.c4{opacity:0}.ap-cine,.ap-blackout{display:none}}
 :where(img[width][height]){height:auto}.dc-if{display:contents}.dc-if[hidden]{display:none !important}html{scroll-behavior:smooth}@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
 </style>
@@ -656,6 +681,36 @@ details[open] .ap-ans{animation:apFade .35s ease both}
 </div>
 <div style="display: flex; justify-content: center">
 <a class="ap-btn ap-comprar" href="#preco" data-checkout="principal" data-on-click="clicouCompra" style="display: inline-flex; align-items: center; justify-content: center; min-height: 60px; padding: 0 36px; background: #FFB41D; color: #1C0708; border-radius: 999px; font-weight: 900; font-size: 19px; text-decoration: none">COMPRAR AGORA</a>
+</div>
+</div>
+</section>
+
+<!-- O CURSO POR DENTRO (vídeo sem áudio, com motion) -->
+<section class="ap-tour">
+<div class="ap-brasas" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<div class="ap-wrap ap-tour-in">
+<div class="ap-tour-txt">
+<span class="ap-tour-tag"><i class="ap-tour-dot" aria-hidden="true"></i>Tour pela área de membros</span>
+<h2 class="ap-tour-tit">Veja como é o curso <em>por dentro</em></h2>
+<p style="margin: 0; max-width: 32em; color: #F2DCD0">É assim que você assiste: os 12 módulos com capa, cada um com as suas aulas, no celular ou no computador. Abriu, escolheu o módulo e já começa.</p>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; text-align: left">
+<li style="display: flex; gap: 12px; align-items: flex-start"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFB41D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M20 6 9 17l-5-5"></path></svg><span>Módulos com capa, fáceis de achar</span></li>
+<li style="display: flex; gap: 12px; align-items: flex-start"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFB41D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M20 6 9 17l-5-5"></path></svg><span>Aulas na ordem da produção, da massa à venda</span></li>
+<li style="display: flex; gap: 12px; align-items: flex-start"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFB41D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M20 6 9 17l-5-5"></path></svg><span>Acesso vitalício, pra rever quando quiser</span></li>
+</ul>
+<div><a class="ap-btn ap-comprar" href="#preco" data-checkout="principal" data-on-click="clicouCompra" style="display: inline-flex; align-items: center; justify-content: center; min-height: 60px; padding: 0 36px; background: #FFB41D; color: #1C0708; border-radius: 999px; font-weight: 900; font-size: 19px; text-decoration: none">COMPRAR AGORA</a></div>
+</div>
+<div class="ap-tour-palco">
+<div class="ap-tour-fx" aria-hidden="true"><div class="ap-tour-ring"></div><div class="ap-ripple"></div><div class="ap-ripple d2"></div></div>
+<div class="ap-faisca" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+<div class="ap-tour-cel">
+<div class="ap-tour-ilha" aria-hidden="true"></div>
+<video class="ap-tour-video" data-ref="setTour" src="assets/video/curso-por-dentro.mp4" poster="assets/img/capa-curso-por-dentro.jpg" muted="" loop="" playsinline="" preload="none" aria-label="Vídeo sem som mostrando a área de membros do ABC do Salgadeiro: a capa do curso, os módulos e as aulas do módulo Massas"></video>
+</div>
+<span class="ap-tour-b b1" aria-hidden="true">12 módulos</span>
+<span class="ap-tour-b b2" aria-hidden="true">35 aulas</span>
+<span class="ap-tour-b b3" aria-hidden="true">Acesso vitalício</span>
+<span class="ap-tour-b b4" aria-hidden="true">No celular ou PC</span>
 </div>
 </div>
 </section>
@@ -993,6 +1048,7 @@ class Component extends DCLogic {
     if (this._oQuem) this._oQuem.disconnect();
     if (this._vobs) this._vobs.disconnect();
     if (this._bobs && this._bobs.disconnect) this._bobs.disconnect();
+    if (this._tobs) this._tobs.disconnect();
   }
   tentarOferta() {
     if (!(this.props.ofertaAtiva ?? true)) return;
@@ -1082,6 +1138,22 @@ class Component extends DCLogic {
       setPreco: (el) => this.vigia(el, 'Preco', () => this.props.segundosNoPreco ?? 2),
       setQuem: (el) => this.vigia(el, 'Quem', () => this.props.segundosNaWanessa ?? 7),
       fecharOferta: () => this.setState({ oferta: false }),
+      setTour: (el) => {
+        if (!el || this._tour) return;
+        this._tour = el;
+        try { el.muted = true; el.defaultMuted = true; el.loop = true; el.playsInline = true; el.setAttribute('muted', ''); el.setAttribute('playsinline', ''); } catch (e) {}
+        const reduz = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduz) { try { el.controls = true; } catch (e) {} return; }
+        const tocar = () => { try { el.preload = 'auto'; const p = el.play(); if (p && p.catch) p.catch(() => {}); } catch (e) {} };
+        if (typeof IntersectionObserver === 'undefined') { tocar(); return; }
+        this._tobs = new IntersectionObserver((entries) => {
+          entries.forEach((en) => {
+            if (en.isIntersecting && en.intersectionRatio >= 0.25) tocar();
+            else { try { el.pause(); } catch (e) {} }
+          });
+        }, { threshold: [0, 0.25] });
+        this._tobs.observe(el);
+      },
       clicouCompra: () => this.setState({ clicou: true })
     };
     return this._h;
